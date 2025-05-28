@@ -1,0 +1,64 @@
+body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            display: flex; /* Giúp #map-container có thể chiếm không gian còn lại */
+            flex-direction: column;
+        }
+        .navbar {
+            background-color: #bcd4f3da;
+            border-bottom: 1px solid #dee2e6;
+            flex-shrink: 0; /* Ngăn navbar co lại */
+        }
+        .navbar-brand {
+            margin-left: 10%;
+            font-weight: bold;
+            color: #4d42e4;
+        }
+        #map-container {
+            /* height: calc(100vh - 56px); */ /* Cách tiếp cận flexbox bên dưới tốt hơn */
+            flex-grow: 1; /* Cho phép map-container chiếm hết không gian dọc còn lại */
+            width: 100%;
+            /* background-color: #e9ecef;  Bỏ màu nền để thấy bản đồ */
+            display: flex; /* Cần thiết để #map bên trong có thể dùng height: 100% */
+            align-items: stretch;
+            justify-content: center;
+        }
+        /* QUAN TRỌNG: Đặt chiều cao cho div bản đồ */
+        #map {
+            width: 100%;
+            height: 100%; /* Map sẽ chiếm toàn bộ không gian của #map-container */
+            border-radius: 0.25rem;
+        }
+
+        /* Responsive adjustments (từ file layout.css của bạn) */
+        @media (max-width: 768px) {
+            /* Bạn có thể thêm các điều chỉnh responsive ở đây nếu cần */
+            .navbar-brand {
+                font-size: 1.1rem;
+            }
+        }
+        /* UI cho bảng ghi chú*/
+         .legend {  
+        background-color:#f3e1e1cb;
+        border-radius: 3px;
+        bottom: 5px;
+        box-shadow: 5 5px 2px rgba(255, 253, 253, 0.822);
+        color: #0a0000 ;
+        font: 13px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        padding: 15px;
+        position: absolute;
+        right: 10px;
+        z-index: 800;
+      }
+      .legend h4 {
+        margin: 0 0 5px;
+      } 
+      /* UI cho chấm tròn mô trả màu sắc*/
+      .legend div span {
+        border-radius: 10%;
+        display: inline-block;
+        height: 10px;
+        margin-right: 10px;
+        width: 10px;
+      }
